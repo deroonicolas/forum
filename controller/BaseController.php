@@ -1,8 +1,11 @@
 <?php
 
+namespace controller;
+
 use exception\ViewNotFoundException;
 use framework\FileManager;
 use framework\HttpRequest;
+use stdClass;
 
 class BaseController
 {

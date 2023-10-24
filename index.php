@@ -15,6 +15,7 @@ spl_autoload_register(function ($class) use ($config) {
   foreach ($config->autoloadFolder as $folder) {
     if (file_exists($folder . '/' . $class . '.php')) {
       require_once($folder . '/' . $class . '.php');
+      break;
     }
   }
 });
@@ -25,5 +26,9 @@ try {
   $httpRequest->setRoute($router->findRoute($httpRequest));
   $httpRequest->run($config);
 } catch (Exception $e) {
-  echo "Une erreur s'est produite";
+  $httpRequest = new HttpRequest("/Error", "GET");
+  $router = new Router();
+  $httpRequest->setRoute($router->findRoute($httpRequest));
+  $httpRequest->addParam($e);
+  $httpRequest->run($config);
 }

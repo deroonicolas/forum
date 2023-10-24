@@ -10,10 +10,10 @@ class HttpRequest
   private ?array $params;
   private ?Route $route;
 
-  public function __construct()
+  public function __construct(string $url = null, string $method = null)
   {
-    $this->url = $_SERVER['REQUEST_URI'];
-    $this->method = $_SERVER['REQUEST_METHOD'];
+    $this->url = (is_null($url)) ? $_SERVER['REQUEST_URI'] : $url;
+    $this->method = (is_null($method)) ? $_SERVER['REQUEST_METHOD'] : $method;
     $this->params = array();
   }
 
@@ -71,4 +71,10 @@ class HttpRequest
   {
     $this->route->run($this, $config);
   }
+
+  public function addParam($value)
+  {
+    $this->params[] = $value;
+  }
+  
 }

@@ -31,7 +31,7 @@ class Router
     if ($numberRoute > 1) {
       throw new MultipleRoutesFoundException();
     } else if ($numberRoute == 0) {
-      throw new NoRouteFoundException();
+      throw new NoRouteFoundException($httpRequest);
     } else {
       // Retourner un objet Route construit à partir de la route trouvee
       // array_shift retourne le premier element

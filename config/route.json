@@ -24,4 +24,12 @@
 	"managers": [
 		"User"
 	]
+},
+{
+	"path" : "/error",
+	"controller" : "Error",
+	"action" : "show",
+	"method" : "GET",
+	"params" : [],
+	"managers": []
 }]
