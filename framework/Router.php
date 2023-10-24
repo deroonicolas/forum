@@ -2,7 +2,6 @@
 
 namespace framework;
 
-
 use exception\MultipleRoutesFoundException;
 use exception\NoRouteFoundException;
 
@@ -21,11 +20,11 @@ class Router
   public function findRoute(HttpRequest $httpRequest, string $basepath): Route
   {
     $url = str_replace($basepath, "", $httpRequest->getUrl());
-		$method = $httpRequest->getMethod();
+    $method = $httpRequest->getMethod();
     // Rechercher la ou les routes associées à cette requête http
     // array_filter retourne un tableau, dans lequel tout les éléments répondant à la condition sont présent
     // Pour pouvoir utiliser une variable à l’intérieur de la portée, il faut préciser avec le mot clé "use"
-    $routeFound = array_filter($this->routesList,function($route) use ($url, $method){
+    $routeFound = array_filter($this->routesList, function ($route) use ($url, $method) {
       // preg_match(pattern, chaine d'entree)
       return preg_match("#^" . $route->path . "$#", $url) && $route->method == $method;
     });
