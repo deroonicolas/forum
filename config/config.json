@@ -1,0 +1,16 @@
+{
+  "autoloadFolder": [
+    "framework",
+    "controller",
+    "model",
+    "model/manager",
+    "framework/exception"
+  ],
+  "database": {
+    "name": "Base de données Forum",
+    "dbname": "forum",
+    "host": "localhost",
+    "user": "root",
+    "password": ""
+  }
+}

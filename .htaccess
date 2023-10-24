@@ -1,0 +1,5 @@
+# Utiliser le moteur de réécriture d'url
+RewriteEngine On
+# Précise que lorsque l'on ne trouve pas le fichier demandé dans l'url, on redirige vers /index.php
+# FIXME : à changer au déploiement
+FallbackResource /forum/index.php
