@@ -1,5 +1,7 @@
 <?php
 
+namespace controller;
+
 use controller\BaseController;
 
 class ErrorController extends BaseController

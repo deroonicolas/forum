@@ -18,14 +18,16 @@ class Router
     $this->routesList = json_decode($stringRoute);
   }
 
-  public function findRoute($httpRequest): Route
+  public function findRoute(HttpRequest $httpRequest, string $basepath): Route
   {
+    $url = str_replace($basepath, "", $httpRequest->getUrl());
+		$method = $httpRequest->getMethod();
     // Rechercher la ou les routes associées à cette requête http
     // array_filter retourne un tableau, dans lequel tout les éléments répondant à la condition sont présent
     // Pour pouvoir utiliser une variable à l’intérieur de la portée, il faut préciser avec le mot clé "use"
-    $routeFound = array_filter($this->routesList, function ($route) use ($httpRequest) {
+    $routeFound = array_filter($this->routesList,function($route) use ($url, $method){
       // preg_match(pattern, chaine d'entree)
-      return preg_match("#^" . $route->path . "$#", $httpRequest->getUrl()) && $route->method == $httpRequest->getMethod();
+      return preg_match("#^" . $route->path . "$#", $url) && $route->method == $method;
     });
     $numberRoute = count($routeFound);
     if ($numberRoute > 1) {
