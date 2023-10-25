@@ -4,7 +4,6 @@ namespace framework;
 
 use exception\ActionNotFoundException;
 use exception\ControllerNotFoundException;
-use stdClass;
 
 class Route
 {
