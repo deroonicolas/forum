@@ -30,7 +30,7 @@
 {
 	"path" : "/Error",
 	"controller" : "Error",
-	"action" : "show",
+	"action" : "Show",
 	"method" : "GET",
 	"params" : [],
 	"managers": []

@@ -1,10 +1,10 @@
 <?php
 
+require_once('framework/FileManager.php');
+
 use exception\ViewNotFoundException;
 use framework\FileManager;
 use framework\HttpRequest;
-
-require_once('framework/FileManager.php');
 
 class BaseController
 {
