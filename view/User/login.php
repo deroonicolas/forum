@@ -1,4 +1,4 @@
-<form class="login-form" action="Login" method="post"> 
+<form class="login-form" action="authenticate" method="post"> 
 	<label>Identifiant</label>
 	<input type="text" name="login" />
 	<label>Mot de passe</label>
