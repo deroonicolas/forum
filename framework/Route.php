@@ -62,7 +62,6 @@ class Route
     if (class_exists($controllerName)) {
 
       $controller = new $controllerName($httpRequest, $config);
-      var_dump($this->action);
       if (method_exists($controller, $this->action)) {
         // ... = opérateur de décomposition (https://www.php.net/manual/fr/migration56.new-features.php#migration56.new-features.variadics)
         $controller->{$this->action}(...$httpRequest->getParams());

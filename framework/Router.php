@@ -39,7 +39,7 @@ class Router
     } else {
       // Retourner un objet Route construit à partir de la route trouvee
       // array_shift retourne le premier element (stdClass)
-      $route = array_shift($routesFound);
+      $route = array_shift($routesFound);      
       return new Route($route->path, $route->controller, $route->action, 
         $route->method, $route->params, $route->managers);
     }
