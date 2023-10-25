@@ -1,8 +1,6 @@
 <?php
 
-namespace controller;
-
-use controller\BaseController;
+require_once('controller/BaseController.php');
 
 class ErrorController extends BaseController
 {

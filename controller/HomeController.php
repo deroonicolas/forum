@@ -1,6 +1,6 @@
 <?php
 
-namespace controller;
+require_once('controller/BaseController.php');
 
 class HomeController extends BaseController
 {

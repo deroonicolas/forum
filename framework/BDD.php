@@ -1,6 +1,7 @@
 <?php
 
 namespace framework;
+
 use PDO;
 
 /**  Connexion à la base de données */

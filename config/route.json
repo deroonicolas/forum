@@ -3,18 +3,20 @@
 	"controller" : "Home",
 	"action" : "home",
 	"method" : "GET",
-	"params" : []
+	"params" : [],
+	"managers": []
 },
 {
-	"path" : "/login",
-	"controller" : "Home",
+	"path" : "/Login",
+	"controller" : "User",
 	"action" : "login",
 	"method" : "GET",
-	"params" : []
+	"params" : [],
+	"managers": []
 },
 {
-	"path" : "/login",
-	"controller" : "Home",
+	"path" : "/Login",
+	"controller" : "User",
 	"action" : "authenticate",
 	"method" : "POST",
 	"params" : [
@@ -26,7 +28,7 @@
 	]
 },
 {
-	"path" : "/error",
+	"path" : "/Error",
 	"controller" : "Error",
 	"action" : "show",
 	"method" : "GET",

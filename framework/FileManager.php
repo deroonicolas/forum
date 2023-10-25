@@ -1,7 +1,6 @@
 <?php
 
 namespace framework;
-
 class FileManager
 {
   private ?array $cssFilesList;

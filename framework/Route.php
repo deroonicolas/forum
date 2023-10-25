@@ -2,9 +2,9 @@
 
 namespace framework;
 
-use Exception;
 use exception\ActionNotFoundException;
 use exception\ControllerNotFoundException;
+use stdClass;
 
 class Route
 {
@@ -15,14 +15,15 @@ class Route
   private ?array $params;
   private ?array $managers;
 
-  public function __construct($route)
+  public function __construct(string $path, string $controller, string $action, 
+    string $method, array $params = [], array $managers = [])
   {
-    $this->path = $route->path;
-    $this->controller = $route->controller;
-    $this->action = $route->action;
-    $this->method = $route->method;
-    $this->params = $route->params;
-    $this->managers = $route->managers;
+    $this->path = $path;
+    $this->controller = $controller;
+    $this->action = $action;
+    $this->method = $method;
+    $this->params = $params;
+    $this->managers = $managers;
   }
 
   public function getPath(): ?string
@@ -62,9 +63,10 @@ class Route
     if (class_exists($controllerName)) {
 
       $controller = new $controllerName($httpRequest, $config);
+      var_dump($this->action);
       if (method_exists($controller, $this->action)) {
         // ... = opérateur de décomposition (https://www.php.net/manual/fr/migration56.new-features.php#migration56.new-features.variadics)
-        $controller->{$this->action}(...$httpRequest->getParam());
+        $controller->{$this->action}(...$httpRequest->getParams());
       } else {
         throw new ActionNotFoundException();
       }

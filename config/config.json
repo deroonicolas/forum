@@ -4,6 +4,7 @@
     "controller",
     "model",
     "model/manager",
+    "model/entity",
     "framework/exception"
   ],
   "database": {

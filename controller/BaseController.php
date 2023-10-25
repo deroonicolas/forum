@@ -1,17 +1,16 @@
 <?php
 
-namespace controller;
-
 use exception\ViewNotFoundException;
 use framework\FileManager;
 use framework\HttpRequest;
-use stdClass;
+
+require_once('framework/FileManager.php');
 
 class BaseController
 {
   private ?HttpRequest $httpRequest;
   private ?array $params;
-  private ?stdClass $config;
+  private $config;
   private ?FileManager $fileManager;
 
   public function __construct($httpRequest, $config)
@@ -40,7 +39,7 @@ class BaseController
       // Etant donné que les paramètres sont sous format de tableau dans le base contrôleur,
       // on peut utiliser extract() pour les extraire et qu'une variable soit créée pour chaque case du tableau.
       extract($this->params);
-      include("view/" . $this->httpRequest->getRoute()->getController() . ".php");
+      include('view/' . $controller . "/" . $fileName . '.php');
       // ob_get_clean récupère le contenu généré, et efface le tampon
       $content = ob_get_clean();
       include("view/layout.php");
