@@ -21,7 +21,7 @@ spl_autoload_register(function ($class) use ($config) {
 });
 
 try {
-  $httpRequest = new HttpRequest("/Login", "GET");
+  $httpRequest = new HttpRequest();
   $router = new Router();
   $httpRequest->setRoute($router->findRoute($httpRequest, $config->basepath));
   $httpRequest->run($config);

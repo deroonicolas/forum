@@ -1,6 +1,9 @@
 # Utiliser le moteur de réécriture d'url
 RewriteEngine On
-#RewriteRule ^(.*)$ index.php.$l
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php/$1 [L]
 # Précise que lorsque l'on ne trouve pas le fichier demandé dans l'url, on redirige vers /index.php
 # FIXME : à changer au déploiement
 FallbackResource /forum/index.php

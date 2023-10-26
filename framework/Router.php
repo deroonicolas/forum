@@ -17,7 +17,6 @@ class Router
     $stringRoute = file_get_contents('config/route.json');
     // Transformer le fichier en objet et les mettre dans la propriété routesList
     $this->routesList = json_decode($stringRoute);
-    var_dump($this->routesList);
   }
 
   public function findRoute(HttpRequest $httpRequest, string $basepath): Route

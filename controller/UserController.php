@@ -11,8 +11,7 @@ class UserController extends BaseController
 
   public function Authenticate($login, $password)
   {
-    // $user = $this->UserManager->getByMail($login);
-    // $user = new UserManager()->getByMail($login);
-		var_dump($login);
+    $user = $this->UserManager->getByMail($login);
+		var_dump($user);
   }
 }
