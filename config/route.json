@@ -28,6 +28,19 @@
 	]
 },
 {
+	"path" : "/Dashboard",
+	"controller" : "Dashboard",
+	"action" : "dashboard",
+	"method" : "GET",
+	"params" : [
+		"login",
+		"password"
+	],
+	"managers": [
+		
+	]
+},
+{
 	"path" : "/Error",
 	"controller" : "Error",
 	"action" : "Show",

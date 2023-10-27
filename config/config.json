@@ -7,11 +7,5 @@
     "model/manager",
     "model/entity"
   ],
-  "database": {
-    "dbname": "forum",
-    "host": "localhost",
-    "user": "root",
-    "password": ""
-  },
   "basepath" : "/dp/forum"
 }

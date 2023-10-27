@@ -20,7 +20,6 @@ class UserController extends BaseController
   public function Authenticate($login, $password)
   {
     $user = $this->getUserManager()->getByMail($login);
-    var_dump($user);
-    $this->view("login");
+    // DashboardController->view("dashboard");
   }
 }
