@@ -1,9 +1,9 @@
 <?php
 	class UserManager extends BaseManager
 	{
-		public function __construct($datasource)
+		public function __construct()
 		{
-			parent::__construct("user", "User", $datasource);	
+			parent::__construct("user", "User");
 		}
 		
     // Recherche sur le mail

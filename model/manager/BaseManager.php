@@ -3,17 +3,19 @@
 use exception\PropertyNotFoundException;
 use framework\BDD;
 
+require_once('framework/BDD.php');
+
 class BaseManager
 {
   private $table;
   private $object;
   protected $dataBase;
 
-  public function __construct($table, $object, $dataSource)
+  public function __construct($table, $object)
   {
     $this->table = $table;
     $this->object = $object;
-    $this->dataBase = BDD::getInstance($dataSource);
+    $this->dataBase = BDD::getInstance();
   }
 
   public function findAll(): array|false

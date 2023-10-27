@@ -1,17 +1,26 @@
 <?php
 
-require_once('controller/BaseController.php');
-
 class UserController extends BaseController
 {
-  public function Login()
+  private $userManager;
+
+  private function getUserManager()
+  {
+    if (!$this->userManager) {
+      $this->userManager = new UserManager();
+    }
+    return $this->userManager;
+  }
+
+  public function login()
   {
     $this->view("login");
   }
 
   public function Authenticate($login, $password)
   {
-    $user = $this->UserManager->getByMail($login);
-		var_dump($user);
+    $user = $this->getUserManager()->getByMail($login);
+    var_dump($user);
+    $this->view("login");
   }
 }

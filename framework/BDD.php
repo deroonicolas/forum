@@ -10,17 +10,17 @@ class BDD
   private ?PDO $dataBase;
   private static ?BDD $instance;
 
-  private function __construct($dataSource)
+  private function __construct()
   {
     $this->dataBase = new PDO(
-      'mysql:dbname=' . $dataSource->dbname . ';host=' . $dataSource->host,
-      $dataSource->user, $dataSource->password);
+      'mysql:dbname=' . getenv("DB_NAME") . ';host=' . getenv("DB_HOST"),
+      getenv("DB_USER"), getenv("DB_PASSWORD"));
   }
 
-  public static function getInstance($dataSource): ?PDO
+  public static function getInstance(): ?PDO
   {
     if (empty(self::$instance)) {
-      self::$instance = new BDD($dataSource);
+      self::$instance = new BDD();
     }
     return self::$instance->dataBase;
   }

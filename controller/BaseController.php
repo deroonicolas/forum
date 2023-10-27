@@ -20,7 +20,6 @@ class BaseController
     $this->params = array();
     $this->addParam("httprequest", $this->httpRequest);
     $this->addParam("config", $this->config);
-    $this->bindManager();
     $this->fileManager = new FileManager();
   }
 
@@ -45,14 +44,6 @@ class BaseController
       include("view/layout.php");
     } else {
       throw new ViewNotFoundException();
-    }
-  }
-
-  public function bindManager(): void
-  {
-    // Ajout propriétés dynamiques
-    foreach ($this->httpRequest->getRoute()->getManagers() as $manager) {
-      $this->$manager = new $manager($this->config->database);
     }
   }
 

@@ -2,9 +2,11 @@
 
 use framework\HttpRequest;
 use framework\Router;
+use framework\DotEnv;
 
 require_once('framework/HttpRequest.php');
 require_once('framework/Router.php');
+require_once('framework/DotEnv.php');
 
 $configFile = file_get_contents("config/config.json");
 $config = json_decode($configFile);
@@ -18,6 +20,7 @@ spl_autoload_register(function ($class) use ($config) {
       break;
     }
   }
+  (new DotEnv(__DIR__ . '/.env'))->load();
 });
 
 try {

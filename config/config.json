@@ -1,14 +1,13 @@
 {
   "autoloadFolder": [
     "framework",
+    "framework/exception",
     "controller",
     "model",
     "model/manager",
-    "model/entity",
-    "framework/exception"
+    "model/entity"
   ],
   "database": {
-    "name": "Base de données Forum",
     "dbname": "forum",
     "host": "localhost",
     "user": "root",
